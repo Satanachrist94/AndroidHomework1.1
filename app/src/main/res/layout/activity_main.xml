@@ -25,11 +25,11 @@
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/data"
-
         app:layout_constraintEnd_toStartOf="@id/options"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="@id/avatar"
         tools:text="Автор поста" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/data"
@@ -42,6 +42,7 @@
         app:layout_constraintStart_toStartOf="@id/authorName"
         app:layout_constraintTop_toBottomOf="@id/authorName"
         tools:text="Дата публикации" />
+
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/options"
@@ -64,13 +65,14 @@
         />
 
     <androidx.appcompat.widget.AppCompatTextView
+
         android:id="@+id/postContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/barrier_up"
-
         tools:text="Записывайтесь на видеолекцию «Маркетплейсы: как выбрать площадку для размещения товаров» С конца 2021 года в онлайн-ритейле стали говорить о второй волне маркетплейсов в России. В таком многообразии бывает сложно выбрать оптимальную платформу для продажи своих товаров. Как выбрать подходящий маркетплейс для вашего интернет-магазина — разберёмся на занятии. Вы узнаете, что из себя представляют маркетплейсы, чем они отличаются от агрегаторов и зачем нужно сейчас занять эту нишу. Выбирайте маркетплейс, который вам подходит:" />
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/link"
@@ -83,7 +85,6 @@
         app:layout_constraintBottom_toTopOf="@id/barrier_under"
         app:layout_constraintStart_toStartOf="@id/postContent"
         app:layout_constraintTop_toBottomOf="@id/postContent" />
-
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_under"
         android:layout_width="0dp"
@@ -119,17 +120,19 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_repost_24dp"
+
         app:layout_constraintEnd_toStartOf="@id/reposts"
         app:layout_constraintStart_toEndOf="@id/likes"
         app:layout_constraintTop_toTopOf="@id/like_button" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+         <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/reposts"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+
         android:text="@string/repostsCount"
         android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toBottomOf="@id/repost_button"
@@ -156,9 +159,9 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier_under"
-        tools:text="1k"
+
+        app:layout_constraintEnd_toEndOf="parent"
 
         />
 

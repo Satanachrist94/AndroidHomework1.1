@@ -31,6 +31,9 @@ class MainActivity : AppCompatActivity() {
             binding.likeButton.setImageResource(getLikeResId(post.likeByMe))
             binding.likes.setText(getCountLike(post.likeByMe,post))
         }
+        binding.repostButton.setOnClickListener{
+            binding.reposts.setText("${post.repostConut++}")
+        }
 
 
 
