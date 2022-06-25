@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private fun getLikeResId (liked:Boolean) =
         if(liked) R.drawable.ic_liked_24dp
         else R.drawable.ic_like_24dp
-    }
+
     private fun getCountLike (likeByMe:Boolean,post: Post) :String {
         val formatThousand = 1_000
         val formatMillion = 1_000_000
@@ -58,5 +58,5 @@ class MainActivity : AppCompatActivity() {
             }
             return likeFormatString.toString()
     }
-
 }
+
