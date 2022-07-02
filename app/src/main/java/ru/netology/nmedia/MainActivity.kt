@@ -1,15 +1,11 @@
 package ru.netology.nmedia
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.annotation.DrawableRes
-import androidx.lifecycle.map
+import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.viewmodel.PostViewModel
-import java.math.BigDecimal
-import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity() {
     private val FORMAT_THOUSAND = 1_000
