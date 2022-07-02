@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" >Нмедиа</string>
+    <string name="app_name">Нмедиа</string>
     <string name="nmedia">Привет</string>
     <string name="author_description">Аватар автора</string>
 
     <string name="link">https://netolo.gy/ilu</string>
 
     <string name="repostsCount">0</string>
+    <string name="likesCount">0</string>
 
 </resources>

@@ -2,9 +2,9 @@
     <string name="app_name">Nmedia</string>
     <string name="nmedia">Nmedia</string>
     <string name="author_description">Author avatar</string>
-    <string name="likesCount" translatable="false">0</string>
+    <string name="likesCount">0</string>
 
-        <string name="link">https://netolo.gy/ilu</string>
+    <string name="link">https://netolo.gy/ilu</string>
     <string name="repostsCount">0</string>
 
 

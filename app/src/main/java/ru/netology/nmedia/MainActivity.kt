@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.likeButton.setOnClickListener {
             viewModel.onLikeClicked()
-            println("жмяк")
+
         }
         viewModel.data.observe(this) { post ->
             with(binding) {
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val likeFormatString =
             when (val liked = if (post.likeByMe) (post.likeCount + 1) else post.likeCount) {
                 in 1_000..999_999 -> "${liked / FORMAT_THOUSAND}K"
-                in 1_000_000..999_999_999 -> "${liked / FORMAT_THOUSAND}M"
+                in 1_000_000..999_999_999 -> "${liked / FORMAT_MILLION}M"
                 else -> liked
             }
         return likeFormatString.toString()
@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
     private fun getLikeResId(liked: Boolean) =
 
         if (liked) R.drawable.ic_liked_24dp else R.drawable.ic_like_24dp
-
 
 
 }

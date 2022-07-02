@@ -22,7 +22,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 "и зачем нужно сейчас занять эту нишу. Выбирайте маркетплейс, который вам подходит:",
         published = "25.06.22",
         likeByMe = false,
-        likeCount = 1200,
+        likeCount = 999,
         repostConut = 0
 
     )
