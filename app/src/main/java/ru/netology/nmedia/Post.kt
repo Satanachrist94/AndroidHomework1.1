@@ -1,11 +1,12 @@
 package ru.netology.nmedia
 
-class Post(
+data class Post(
     val id :Long,
     val author :String,
     val content :String,
     val published :String,
-    var likeByMe :Boolean = false,
-    var likeCount:Long = 0,
-    var repostConut :Long =0
+    var likeByMe :Boolean ,
+    var likeCount:Long,
+    var repostConut :Long
+
 )
