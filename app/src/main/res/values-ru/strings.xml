@@ -7,5 +7,8 @@
     <string name="link">https://netolo.gy/ilu</string>
 
     <string name="repostsCount">0</string>
+    <string name="remove">удалить</string>
+    <string name="post_text">ввод текста</string >
+    <string name="update">редактировать</string >
 
 </resources>
