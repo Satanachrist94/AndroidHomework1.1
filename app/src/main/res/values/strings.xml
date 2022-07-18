@@ -6,6 +6,9 @@
 
         <string name="link">https://netolo.gy/ilu</string>
     <string name="repostsCount">0</string>
+    <string name="remove">remove</string>
+    <string name="post_text">input text</string>
+    <string name="update">update</string>
 
 
 </resources>
