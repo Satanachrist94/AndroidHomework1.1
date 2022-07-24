@@ -8,27 +8,22 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.data.PostRepository
 
 class PostRepositoryInMemoryImpl : PostRepository {
+    private var nextID = 1000L
+
 
     override val data = MutableLiveData(
         List(100) { index ->
             Post(
                 id = index + 1L,
                 author = "Нетология.Меняем карьеру через образование",
-                content = "Записывайтесь на видеолекцию «Маркетплейсы: " +
-                        "как выбрать площадку для размещения товаров» С " +
-                        "конца 2021 года в онлайн-ритейле стали говорить о" +
-                        "второй волне маркетплейсов в России. В таком многообразии" +
-                        " бывает сложно выбрать оптимальную платформу для продажи " +
-                        "своих товаров. Как выбрать подходящий маркетплейс для вашего" +
-                        " интернет-магазина — разберёмся на занятии. Вы узнаете, что из" +
-                        " себя представляют маркетплейсы, чем они отличаются от агрегаторов " +
-                        "и зачем нужно сейчас занять эту нишу. Выбирайте маркетплейс, который вам подходит:",
+                content = "Рандомный пост № $index",
                 published = "25.06.22",
                 likeByMe = false,
                 likeCount = 1200,
                 repostConut = 0
             )
         })
+
     private val posts
         get() = checkNotNull(data.value) {
 
@@ -52,6 +47,32 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 repostConut = it.repostConut + 1
             )
             else it
+        }
+    }
+
+    override fun delete(postId: Long) {
+        data.value = posts.filter {
+            it.id != postId
+        }
+    }
+
+    override fun save(post: Post) {
+        if(post.id ==PostRepository.NEW_POST_ID) add(post) else update(post)
+    }
+
+    private fun add(post: Post) {
+        data.value = listOf(post.copy(
+            id =++nextID
+
+        )) +posts
+
+
+    }
+
+    private fun update(post: Post) {
+
+        data.value = posts.map {
+            if(it.id ==post.id) post else it
         }
     }
 }
