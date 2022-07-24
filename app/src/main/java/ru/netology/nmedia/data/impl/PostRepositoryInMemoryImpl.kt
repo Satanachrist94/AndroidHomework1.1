@@ -19,7 +19,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 content = "Рандомный пост № $index",
                 published = "25.06.22",
                 likeByMe = false,
-                likeCount = 1200,
+                likeCount = 123,
                 repostConut = 0
             )
         })
