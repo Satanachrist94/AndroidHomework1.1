@@ -11,7 +11,6 @@ import ru.netology.nmedia.Post
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.PostBinding
 
-
 private val FORMAT_THOUSAND = 1_000.0
 private val FORMAT_MILLION = 1_000_000.0
 
@@ -53,7 +52,6 @@ class ViewHolder (
                     }
                     R.id.update -> {
                         listener.onCancelClicked()
-
                         listener.onUpdateClicked(post)
 
 
@@ -82,13 +80,15 @@ class ViewHolder (
     fun bind(post: Post) {
         this.post = post
         with(binding){
-
         authorName.text = post.author
         postContent.text = post.content
         data.text = post.published
-        likeButton.setImageResource(getLikeResId(post.likeByMe))
-        reposts.text = post.repostConut.toString()
-        likes.text = getCountLike(post)
+        likeButton.isChecked = post.likeByMe
+
+            repostButton.setText(post.repostConut.toString())
+      //  reposts.text = post.repostConut.toString()
+            likeButton.setText(getCountLike(post))
+       // likes.text = getCountLike(post)
             options.setOnClickListener { popupMenu.show() }
 
 
@@ -109,11 +109,6 @@ private fun getCountLike(post: Post): String {
         }
     return likeFormatString.toString()
 }
-private fun getLikeResId(liked: Boolean) =
-
-    if (liked) R.drawable.ic_liked_24dp else R.drawable.ic_like_24dp
-
-
 
 object DiffCallBack : DiffUtil.ItemCallback<Post>() {
     override fun areItemsTheSame(oldItem: Post, newItem: Post) =
