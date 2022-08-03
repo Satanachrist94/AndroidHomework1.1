@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
@@ -36,11 +37,6 @@ class ViewHolder (
         listener: PostListener) : RecyclerView.ViewHolder(binding.root) {
     private lateinit var post: Post
 
-
-
-
-
-
     private val popupMenu =
         PopupMenu(itemView.context,binding.options).apply {
             inflate(R.menu.options_post)
@@ -51,8 +47,8 @@ class ViewHolder (
                         true
                     }
                     R.id.update -> {
-                        listener.onCancelClicked()
-                        listener.onUpdateClicked(post)
+
+                      listener.onUpdateClicked(post)
 
 
                         true
@@ -72,6 +68,11 @@ class ViewHolder (
         binding.repostButton.setOnClickListener {
             listener.onRepostClicked(post)
 
+            }
+        binding.videoFrameInPost.videoPoster.setOnClickListener {
+            listener.onVideoClicked(post)
+
+
         }
 
 
@@ -84,6 +85,12 @@ class ViewHolder (
         postContent.text = post.content
         data.text = post.published
         likeButton.isChecked = post.likeByMe
+            if (post.videoUrl != null) {
+                postVideoGroup.visibility = View.VISIBLE
+                binding.videoFrameInPost.videoUrl.setText(post.videoUrl)
+            } else {
+                postVideoGroup.visibility = View.GONE
+            }
 
             repostButton.setText(post.repostConut.toString())
       //  reposts.text = post.repostConut.toString()
