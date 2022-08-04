@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
             }
 
            override fun onUpdateClicked(post:Post) {
+               viewModel.onEditClicked(post)
 
-               viewModel.currentPost.value = post //отображение корректируемого поста на экране
-               viewModel.editPostContent.value = post.content
+
 
             }
 
@@ -83,11 +83,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val postContentActivityLauncher = registerForActivityResult(NewPostResultContract) { postContent ->
             postContent ?: return@registerForActivityResult
             viewModel.onSaveButtomClicked(postContent)
 
         }
+
 
         viewModel.navigateToPostContent.observe(this) {
             postContentActivityLauncher.launch(null)
@@ -102,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.editPostContent.observe(this) {
             val textForEdit = viewModel.currentPost.value?.content
             postContentActivityLauncher.launch(textForEdit)
+
         }
 
 
@@ -114,6 +117,8 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+
         /*viewModel.editPostContent.observe(this) {
              viewModel.currentPost.value?.content
             postContentActivityLauncher.launch(textForEdit)

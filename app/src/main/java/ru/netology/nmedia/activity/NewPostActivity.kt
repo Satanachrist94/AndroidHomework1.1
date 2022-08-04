@@ -19,6 +19,7 @@ class NewPostActivity : AppCompatActivity() {
 
         val binding = ActivityNewPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.edit.setText(intent?.extras?.getString(Intent.EXTRA_TEXT))
         binding.edit.requestFocus()
         binding.ok.setOnClickListener {
             val intent = Intent()
@@ -29,6 +30,7 @@ class NewPostActivity : AppCompatActivity() {
                 intent.putExtra(POST_CONTENT_EXTRA_KEY, content)
                 setResult(Activity.RESULT_OK, intent)
             }
+
             finish()
 
         }

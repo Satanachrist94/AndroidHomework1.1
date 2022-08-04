@@ -31,8 +31,9 @@ class PostViewModel : ViewModel() {
     fun onAddClicked() {
         navigateToPostContent.call()
     }
-    fun onEditClicked() {
-        editPostContent.call()
+    fun onEditClicked(post:Post) {
+        currentPost.value = post //отображение корректируемого поста на экране
+       editPostContent.value = post.content
     }
      fun onVideoClicked(post: Post) {
         post.videoUrl?.let {
