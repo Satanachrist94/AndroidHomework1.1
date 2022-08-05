@@ -63,24 +63,30 @@
         tools:text="Записывайтесь на видеолекцию «Маркетплейсы: как выбрать площадку для размещения товаров» С конца 2021 года в онлайн-ритейле стали говорить о второй волне маркетплейсов в России. В таком многообразии бывает сложно выбрать оптимальную платформу для продажи своих товаров. Как выбрать подходящий маркетплейс для вашего интернет-магазина — разберёмся на занятии. Вы узнаете, что из себя представляют маркетплейсы, чем они отличаются от агрегаторов и зачем нужно сейчас занять эту нишу. Выбирайте маркетплейс, который вам подходит:" />
 
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/link"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/video_frame_in_post"
+        layout="@layout/activity_post_video_module"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:autoLink="web"
-        android:text="@string/link"
+        app:layout_constraintTop_toBottomOf="@id/postContent"
         app:layout_constraintBottom_toTopOf="@id/barrier_under"
-        app:layout_constraintStart_toStartOf="@id/postContent"
-        app:layout_constraintTop_toBottomOf="@id/postContent" />
+        android:layout_marginBottom="@dimen/dimen_spacing"
+        />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/postVideoGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:background="@android:color/background_light"
+        android:visibility="visible"
+        app:constraint_referenced_ids="video_frame_in_post" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_under"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="link" />
+        app:constraint_referenced_ids="video_frame_in_post" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/like_button"
@@ -92,7 +98,7 @@
         android:textColor="@color/cardview_dark_background"
         android:textSize="@dimen/text_size"
         app:icon="@drawable/ic_like"
-        app:layout_constraintStart_toStartOf="@id/link"
+        app:layout_constraintStart_toStartOf="@id/postContent"
         app:layout_constraintTop_toBottomOf="@id/barrier_under">
 
     </com.google.android.material.button.MaterialButton>

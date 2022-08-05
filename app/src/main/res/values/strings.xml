@@ -4,11 +4,13 @@
     <string name="author_description">Author avatar</string>
     <string name="likesCount" translatable="false">0</string>
 
-        <string name="link">https://netolo.gy/ilu</string>
+
     <string name="repostsCount">0</string>
     <string name="remove">remove</string>
     <string name="post_text">input text</string>
     <string name="update">update</string>
+    <string name="description_post_save">save</string>
+    <string name="description_add_post">add</string>
 
 
 </resources>
