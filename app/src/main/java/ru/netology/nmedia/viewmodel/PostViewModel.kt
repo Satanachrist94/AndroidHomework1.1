@@ -1,9 +1,12 @@
 package ru.netology.nmedia.viewmodel
 
+import PostReposytoryFileImpl
 import SingleLiveEvent
+import android.app.Application
 import android.view.View
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.Group
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.Post
@@ -12,8 +15,8 @@ import ru.netology.nmedia.data.PostRepository
 import ru.netology.nmedia.data.impl.PostRepositoryInMemoryImpl
 import ru.netology.nmedia.databinding.ActivityMainBinding
 
-class PostViewModel : ViewModel() {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
+class PostViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: PostRepository = PostReposytoryFileImpl(application)
 
 
     val data get() = repository.data
