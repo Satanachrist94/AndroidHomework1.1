@@ -7,7 +7,8 @@ import ru.netology.nmedia.Post
 import ru.netology.nmedia.R
 import ru.netology.nmedia.data.PostRepository
 
-class PostRepositoryInMemoryImpl : PostRepository {
+class PostRepositoryInMemoryImpl(
+    ) : PostRepository {
     private var nextID = 1000L
 
 

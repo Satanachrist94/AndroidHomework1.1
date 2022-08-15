@@ -11,6 +11,9 @@
     <string name="update">update</string>
     <string name="description_post_save">save</string>
     <string name="description_add_post">add</string>
+    <string name="avatar_description" />
+    <string name="more_info" />
+    <string name="generate_posts">generate post</string>
 
 
 </resources>

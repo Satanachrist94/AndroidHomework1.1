@@ -5,10 +5,13 @@ import ru.netology.nmedia.Post
 
 interface PostRepository {
     val data :LiveData<List<Post>>
+
     fun like(postId: Long)
     fun repost(postId: Long)
     fun delete ( postId: Long)
     fun save (post :Post)
+
+
 
 
     companion object {

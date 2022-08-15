@@ -13,6 +13,7 @@
     <string name="description_post_save">сохранить</string>
 
     <string name="description_add_post">Добавить</string>
+    <string name="generate_posts">generate post</string>
 
 
 </resources>
