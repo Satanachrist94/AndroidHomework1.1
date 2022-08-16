@@ -48,8 +48,10 @@ class FeedFragment : Fragment() {
 
             override fun onUpdateClicked(post: Post) {
 
-               //viewModel.editPostContent.value =post.content
                 viewModel.onEditClicked(post)
+              //  viewModel.onEditDetailsPost(post)
+                //viewModel.
+
 
             }
 
@@ -70,6 +72,7 @@ class FeedFragment : Fragment() {
             adapter.submitList(posts)
 
         }
+
 
         viewModel.sharePostContent.observe(viewLifecycleOwner) { postContent ->
             val intent = Intent().apply {

@@ -47,21 +47,23 @@
         tools:text="04.06.2022" />
 
     <!-- optionsIcon -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/options"
         style="@style/Widget.AppTheme.OptionButton"
-        app:icon="@drawable/ic_options_dp24"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/more_info"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        app:icon="@drawable/ic_options_dp24"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/authorName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/headerBarrier"

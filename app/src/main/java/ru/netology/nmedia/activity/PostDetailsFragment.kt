@@ -31,6 +31,7 @@ class PostDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ) = PostDetailsFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
 
+
         val post = viewModel.currentPost.value
 
         viewModel.data.observe(viewLifecycleOwner) { posts ->
@@ -42,8 +43,9 @@ class PostDetailsFragment : Fragment() {
             }
         }
 
+
         setFragmentResultListener(
-            requestKey =FragmentNewPost.REQUEST_KEY
+            requestKey = FragmentNewPost.REQUEST_KEY
         ) { requestKey, bundle ->
             if (requestKey != FragmentNewPost.REQUEST_KEY) return@setFragmentResultListener
             val newPostContent = bundle.getString(
@@ -82,7 +84,9 @@ class PostDetailsFragment : Fragment() {
 
             binding.videoFrameInPost.videoPoster.setOnClickListener {
                 viewModel.onVideoClicked(post)
+
             }
+
 
             val popupMenu by lazy {
                 PopupMenu(layoutInflater.context, binding.options).apply {
@@ -93,8 +97,11 @@ class PostDetailsFragment : Fragment() {
                                 viewModel.onDeleteClicked(post)
                                 true
                             }
-                            R.id.edit -> {
+                            R.id.update -> {
+
+
                                 viewModel.onEditClicked(post)
+
 
                                 true
                             }
@@ -109,34 +116,41 @@ class PostDetailsFragment : Fragment() {
         }
 
         viewModel.navigateToPostContent.observe(viewLifecycleOwner) { initialContent ->
-            val direction = PostDetailsFragmentDirections.toPostContentFragment(initialContent.toString())
+            val direction =
+                PostDetailsFragmentDirections.toPostContentFragment(initialContent.toString())
             findNavController().navigate(direction)
+
         }
+
 
     }.root
 
     private fun PostDetailsFragmentBinding.render(post: Post) {
 
 
-       post.let {
+        post.let {
             authorName.text = post.author
-           postText.text = post.content
+            postText.text = post.content
             data.text = post.published
-           likesIcon.isChecked = post.likeByMe
-           likesIcon.setText(post.likeCount.toString())
+
+            likesIcon.isChecked = post.likeByMe
+            likesIcon.setText(post.likeCount.toString())
+
             if (post.videoUrl != null) {
                 videoFrameInPost.root.visibility = View.VISIBLE
 
 
             } else {
-                videoFrameInPost.root.visibility =View.GONE
+                videoFrameInPost.root.visibility = View.GONE
             }
 
-           repostIcon.setText(post.repostConut.toString())
+            repostIcon.setText(post.repostConut.toString())
 
-           // options.setOnClickListener { popupMenu.show() }
-       }
+
+        }
 
 
     }
+
+
 }

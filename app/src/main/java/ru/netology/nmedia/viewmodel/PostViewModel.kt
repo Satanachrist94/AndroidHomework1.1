@@ -3,6 +3,7 @@ package ru.netology.nmedia.viewmodel
 import PostReposytoryFileImpl
 import SingleLiveEvent
 import android.app.Application
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.Group
@@ -20,15 +21,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
 
     val data get() = repository.data
-    val navigateToPostContent =SingleLiveEvent<String>()
+    val navigateToPostContent = SingleLiveEvent<String>()
     val sharePostContent = SingleLiveEvent<String>()
     val currentPost = SingleLiveEvent<Post?>()
     val playVideoContent = SingleLiveEvent<String>()
-    val editPostContent = SingleLiveEvent<String>()
+
     val navigateToPostDetails = SingleLiveEvent<Long>()
-
-
-
 
 
     fun onLikeClicked(post: Post) = repository.like(post.id)
@@ -36,14 +34,15 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun onDeleteClicked(post: Post) = repository.delete(post.id)
 
 
-    fun onAddClicked() {
-        navigateToPostContent.call()
-    }
-    fun onEditClicked(post:Post) {
+
+
+    fun onEditClicked(post: Post) {
         currentPost.value = post //отображение корректируемого поста на экране
-        editPostContent.value = post.content
+        navigateToPostContent.value = post.content
+
     }
-     fun onVideoClicked(post: Post) {
+
+    fun onVideoClicked(post: Post) {
         post.videoUrl?.let {
             playVideoContent.value = it
         }
