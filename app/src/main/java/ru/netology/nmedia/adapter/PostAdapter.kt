@@ -47,8 +47,7 @@ class ViewHolder (
                         true
                     }
                     R.id.update -> {
-
-                      listener.onUpdateClicked(post)
+                        listener.onUpdateClicked(post)
 
 
                         true
@@ -71,6 +70,7 @@ class ViewHolder (
             }
         binding.videoFrameInPost.videoPoster.setOnClickListener {
             listener.onVideoClicked(post)
+            binding.root.setOnClickListener{ listener.viewPostDetails(post)}
 
 
         }

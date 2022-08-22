@@ -1,5 +1,6 @@
 import android.app.Application
 import android.content.Context
+import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -7,12 +8,18 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import ru.netology.nmedia.Post
 import ru.netology.nmedia.data.PostRepository
+import androidx.work.Data as Data1
 
 class PostReposytoryFileImpl( private  val application: Application) : PostRepository {
     private var nextID = 1000L
     private val FILE_NAME = "posts.json"
     private val gson = Gson()
     private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
+    private val prefs = application.getSharedPreferences(
+        "repo", Context.MODE_PRIVATE
+    )
+
+
 
 
     override val data = MutableLiveData<List<Post>>()
@@ -78,6 +85,9 @@ class PostReposytoryFileImpl( private  val application: Application) : PostRepos
         sync()
     }
 
+
+
+
     private fun add(post: Post) {
         data.value = listOf(post.copy(
             id =++nextID
@@ -98,5 +108,9 @@ class PostReposytoryFileImpl( private  val application: Application) : PostRepos
         application.openFileOutput(FILE_NAME, Context.MODE_PRIVATE).bufferedWriter().use {
             it.write(gson.toJson(posts))
         }
+    }
+    private companion object {
+        const val GENERATED_POSTS_PREF_KEY = "Posts Generator Was Started"
+
     }
 }
