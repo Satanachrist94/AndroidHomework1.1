@@ -7,7 +7,7 @@ data class Post(
     val published :String,
     var likeByMe :Boolean ,
     var likeCount:Long,
-    var repostConut :Long,
+    var repostCount :Long,
     var videoUrl :String = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
 
 )

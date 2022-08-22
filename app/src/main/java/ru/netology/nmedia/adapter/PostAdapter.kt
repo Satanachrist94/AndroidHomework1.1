@@ -92,7 +92,7 @@ class ViewHolder (
                 postVideoGroup.visibility = View.GONE
             }
 
-            repostButton.setText(post.repostConut.toString())
+            repostButton.setText(post.repostCount.toString())
       //  reposts.text = post.repostConut.toString()
             likeButton.setText(getCountLike(post))
        // likes.text = getCountLike(post)
