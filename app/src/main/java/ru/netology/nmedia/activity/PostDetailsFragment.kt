@@ -144,7 +144,7 @@ class PostDetailsFragment : Fragment() {
                 videoFrameInPost.root.visibility = View.GONE
             }
 
-            repostIcon.setText(post.repostConut.toString())
+            repostIcon.setText(post.repostCount.toString())
 
 
         }

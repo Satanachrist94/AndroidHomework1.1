@@ -4,6 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
     id("androidx.navigation.safeargs.kotlin")
     //id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.10'
+    id 'kotlin-kapt'
 
 }
 
@@ -26,7 +27,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -64,4 +65,11 @@ dependencies {
     def nav_version = "2.5.1"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // подключение библиотеки Room
+    def room_ver = "2.4.3"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$room_ver"
+    kapt "androidx.room:room-compiler:$room_ver"
+
 }
